@@ -27,10 +27,10 @@ class BurgerBuilder extends Component{
     }
     componentDidMount (){
         console.log('Component did mount')
-        axios.get('/ingredients.json')
-        .then(response => {
-            console.log(response);
-            this.setState({ingredients : response.data});
+         // eslint-disable-next-line
+        axios.get('/ingredients.json').then(res => {
+           
+            this.setState({ingredients : res.data});
         }).catch(error => {
             this.setState({error : true});
         });
