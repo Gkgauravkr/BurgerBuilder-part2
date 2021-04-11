@@ -25,15 +25,15 @@ class BurgerBuilder extends Component{
         loading : false,
         error : false
     }
-    componentDidMount (){
-        console.log('Component did mount')
-         // eslint-disable-next-line
-        axios.get('/ingredients.json').then(res => {
-           
-            this.setState({ingredients : res.data});
-        }).catch(error => {
-            this.setState({error : true});
-        });
+   componentDidMount () {
+        console.log(this.props);
+        axios.get( 'https://react-my-burger.firebaseio.com/ingredients.json' )
+            .then( response => {
+                this.setState( { ingredients: response.data } );
+            } )
+            .catch( error => {
+                this.setState( { error: true } );
+            } );
     }
 
     purchaseHandler =() =>{
